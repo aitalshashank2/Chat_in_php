@@ -14,13 +14,13 @@
 
                 if($Pass === $CnfPass){
                     
-                    $q = "SELECT * FROM Users WHERE Email = '$email';";
+                    $q = "SELECT * FROM shashank_Users WHERE Email = '$email';";
                     $r = $conn->query($q);
                     if(mysqli_num_rows($r) >= 1){
                         header("Location: ../html/signUp.html");
                         die("Account with this email already exists");
                     }
-                    $q = "SELECT * FROM Users WHERE UserName = '$userName';";
+                    $q = "SELECT * FROM shashank_Users WHERE UserName = '$userName';";
                     $r = $conn->query($q);
                     if(mysqli_num_rows($r) >= 1){
                         header("Location: ../html/signUp.html");
@@ -29,7 +29,7 @@
                         $Pass = 'someSalt'.$Pass.'someSalt';
                         $Pass = hash('sha512', $Pass);
 
-                        $query = "INSERT INTO Users (UserName, Password, Email, Gender) VALUES ('$userName', '$Pass', '$email', '$Gender');";
+                        $query = "INSERT INTO shashank_Users (UserName, Password, Email, Gender) VALUES ('$userName', '$Pass', '$email', '$Gender');";
                         $res = $conn->query($query);
                         header("Location: ../html/signIn.html");
                         die("User Signed Up");

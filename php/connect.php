@@ -2,7 +2,7 @@
     $host = "localhost";
     $uname = "first_year";
     $passwd = "first_year";
-    $db = "Chat_in_php";
+    $db = "shashank_Users";
 
     $conn = new mysqli($host, $uname, $passwd, $db);
 
