@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Chat in PHP</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel = "stylesheet" type="text/css" href="../styles/A1.css">
+        <script src="../js/validation.js"></script>
+    </head>
+
+    <body>
+        <div id="Flash">Chat in PHP</div>
+
+        <div class="fillForm">
+            <div class="MForm">
+                <form name="SignUpForm" action="../php/signUp.php" method="POST">
+                    <h1>Sign Up</h1><hr>
+                    <br><br>
+
+                    UserName: &ensp;&ensp;<input type=text name="Uname" placeholder="UserName" required onchange="dupUser(this.value);"><br>
+                    <div id="UserNameErr" class="ErrorClass"></div>
+                    E-mail: &ensp;&ensp;&ensp;&ensp; <input type="email" name="SUemail" placeholder="Email" required onchange="dupEmail(this.value);"><br>
+                    <div id="EmailErr" class="ErrorClass"></div>
+                    <div id="DupEmailErr" class="ErrorClass"></div>
+                    Gender: &ensp;&ensp;&ensp;&ensp; <select name="sex" required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select><br>
+                    <div id="GenderErr" class="ErrorClass"></div>
+                    Password: &ensp;&ensp;&ensp;<input type="password" name="SignUpPass" placeholder="Password" required><br>
+                    <div id="PasswordErr" class="ErrorClass"></div>
+                    Confirm Password:<input type="password" name="SignUpPassCnf" placeholder="Re-Enter Password" required><br>
+                    <div id="ConfirmErr" class="ErrorClass"></div><br>
+                    <h2 style="text-align: center;"><input type="submit" value="Sign Up" onclick="return validate();"></h2>
+                </form><br>
+                <div style="text-align: right; font-weight:bold; font-size: small;"><a href="../html/signIn.html">Have an account already? Sign In</a></div>
+            </div>
+        </div>
+    </body>
+</html>
