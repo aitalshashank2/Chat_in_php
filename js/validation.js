@@ -60,7 +60,7 @@ function dupUser(uname){
                 document.getElementById("UserNameErr").textContent = this.responseText;
             }
         };
-        xmlHTTP.open("GET", "../php/dupUser.php?uname="+uname, true);
+        xmlHTTP.open("GET", "../php/dupUser.php?uname="+uname+"&email=", true);
         xmlHTTP.send();
     }else{
         document.getElementById("UserNameErr").textContent = "";
@@ -78,7 +78,7 @@ function dupEmail(email){
                 document.getElementById("DupEmailErr").textContent = this.responseText;
             }
         };
-        xmlHTTP.open("GET", "../php/dupUser.php?email="+email, true);
+        xmlHTTP.open("GET", "../php/dupUser.php?email="+email+"&uname=", true);
         xmlHTTP.send();
     }else{
         document.getElementById("DupEmailErr").textContent = "";
