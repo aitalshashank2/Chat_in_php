@@ -5,13 +5,29 @@
     $Pass = $_POST['SignInPass'];
     $Pass = 'someSalt'.$Pass.'someSalt';
     $Pass = hash('sha512', $Pass);
+    $remme = $_POST['Remem'];
 
     $q = "SELECT * FROM shashank_Users WHERE UserName='$uname' AND Password='$Pass';";
     $res = $conn->query($q);
 
     if(mysqli_num_rows($res) >= 1){
-        header("Location: ../html/hello.html");
-        die("Login successful");
+        session_start();
+        $q = "DELETE FROM shashank_Sessions WHERE UserName='$uname';";
+        $conn->query($q);
+
+        $userSessHash = RandHashGen();
+        $_SESSION['userSessHash'] = $userSessHash;
+
+        $q = "INSERT INTO shashank_Sessions (Session, UserName) VALUES ('$userSessHash', '$uname');";
+        $conn->query($q);
+
+        if($remme === "on"){
+            $_SESSION['RememberStatus'] = 1;
+            die(header("Location: ../php/hello.php"));
+        }else{
+            die(header("Location: ../php/hello.php"));
+        }
+
     }else{
         header("Location: ../html/signIn.html");
         die("Login Failed");
