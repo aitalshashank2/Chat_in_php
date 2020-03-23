@@ -24,7 +24,7 @@
         $q = "INSERT INTO shashank_Preserve (RetUserHash, UserName, ExpTime) VALUES ('$h', '$user', $t);";
         $conn->query($q);
 
-        setcookie('CIPPreserve', $h);
+        setcookie('CIPPreserve', $h, $t);
 
         $_SESSION['RememberStatus'] = 0;
     }
