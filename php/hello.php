@@ -30,15 +30,14 @@
     }
 
     if(mysqli_num_rows($res) >= 1){
-        echo "Hello";
+        die(header('Location: ../php/landing.php'));
     }else{
 
         $prior = $_COOKIE['CIPPreserve'];
         $q = "SELECT * FROM shashank_Preserve WHERE RetUserHash='$prior';";
         $res = $conn->query($q);
         if(mysqli_num_rows($res) >= 1){
-            echo "Hello";
-
+            die(header('Location: ../php/landing.php'));
         }else{        
             die(header("Location: ../html/signIn.html"));
         }
