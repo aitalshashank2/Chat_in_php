@@ -25,11 +25,14 @@
         $row = $res->fetch_assoc();
         $photo = $row['Photo'];
         $contactNo = $row['ContactNo'];
-        $fileEx = glob($photo);
+        $fileEx = sizeof(glob($photo));
 
-        if(($photo != null && $contactNo != null) || $fileEx !== 1){
-
-            alert("HI");
+        if(($photo != null && $contactNo != null)){
+            if($fileEx === 1){
+                alert("HI");
+            }else{
+                die(header("Location: ../php/photoCno.php"));
+            }
 
         }else{
             die(header("Location: ../php/photoCno.php"));

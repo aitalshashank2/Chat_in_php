@@ -45,6 +45,7 @@
 
 <?php
 
+    include 'connect.php';
     $file = $_FILES['ProPhoto'];
     $num = $_POST['ContactNo'];
 
@@ -63,7 +64,6 @@
         die();
     }else if(floor($num / 1000000000) != 0 && floor($num / 10000000000) == 0){
 
-        include 'connect.php';
 
         $sess = $_SESSION['userSessHash'];
 
