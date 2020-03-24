@@ -1,8 +1,8 @@
 <?php
     $host = "localhost";
-    $uname = "root";
-    $passwd = "SHAshu4321#@mysql";
-    $db = "Chat_in_php";
+    $uname = "first_year";
+    $passwd = "first_year";
+    $db = "first_year";
 
     $conn = new mysqli($host, $uname, $passwd, $db);
 
