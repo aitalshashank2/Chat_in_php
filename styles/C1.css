@@ -1,0 +1,43 @@
+.mainPlaceholder{
+    display:grid;
+    width:100%;
+    padding-top: 3.5em;
+    grid-template: 1fr 10em 2fr / 2fr 1fr 3fr 3fr;
+    height:90%;
+    position: absolute;
+    line-height: 2.115em;
+}
+#ErrSpace{
+    grid-area: 1 / 1 / 2 / 5;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+}
+#userDetCat{
+    grid-area: 2 / 1 / 3 / 2;
+    text-align: right;
+}
+#userColon{
+    display: flex;
+    grid-area: 2 / 2 / 3 / 3;
+    text-align: center;
+    justify-content: center;
+}
+#userDetVal{
+    grid-area: 2 / 3 / 3 / 4;
+}
+#userPhoto{
+    grid-area: 2 / 4 / 3 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#userDetVal input{
+    width:95%;
+}
+#userDetVal select{
+    margin: 0.5em;
+    padding:0.25em;
+    width:95%;
+}

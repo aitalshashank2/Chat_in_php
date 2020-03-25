@@ -4,6 +4,10 @@ function getExtension(fileName){
 }
 
 function IsImage(fileName){
+    if(fileName == null || fileName == ""){
+        return true;
+    }
+
     var ext = getExtension(fileName);
     switch(ext){
         case 'jpg':

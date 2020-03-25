@@ -12,7 +12,7 @@
 
             if($Gender === 'M' || $Gender === 'F' || $Gender === 'O'){
 
-                if($Pass === $CnfPass){
+                if(($Pass === $CnfPass) && (strlen($Pass) > 8)){
                     
                     $q = "SELECT * FROM shashank_Users WHERE Email = '$email';";
                     $r = $conn->query($q);

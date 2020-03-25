@@ -6,7 +6,6 @@
 
         die(header('location: ../html/signIn.html'));
     }
-    // Add validation on landing page
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +82,7 @@
                 $newSess = RandHashGen();
                 $_SESSION['userSessHash'] = $newSess;
 
-                $qs = "UPDATE shashank_Sessions SET Session='$newSess';";
+                $qs = "UPDATE shashank_Sessions SET Session='$newSess' WHERE UserName='$user';";
                 if($conn->query($qs)){
                     die(header("Location: ../html/welcome.html"));
                 }else{
