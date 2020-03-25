@@ -51,7 +51,7 @@
 
                         $target_file = "../Photos/$nameFile.$ext";
                         if(move_uploaded_file($pho["tmp_name"], $target_file)){
-                            $q = "UPDATE shashank_Users SET Photo='$target_file', ContactNo='$ContactNo' WHERE UserName='$dbUser';";
+                            $q = "UPDATE shashank_Users SET Photo='$target_file', ContactNo='$ContactNo', Gender='$gender' WHERE UserName='$dbUser';";
                             if($conn->query($q)){
                                 $newSess = RandHashGen();
                                 $_SESSION['userSessHash'] = $newSess;
