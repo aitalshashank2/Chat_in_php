@@ -1,3 +1,4 @@
 <?php
-    echo time();
+session_start();
+    echo $_SESSION['chatFr'];
 ?>

@@ -119,8 +119,8 @@
             </div>
             <div id="userDetVal">
                 <form method="POST" enctype="multipart/form-data" id="FileExt" action="../php/profileBack.php">
-                    <input type="text" name="Uname" value="<?php echo $user; ?>" readonly><br>
-                    <input type="email" name="email" value="<?php echo $email; ?>" required readonly><br>
+                    <input type="text" name="Uname" value="<?php echo htmlspecialchars($user); ?>" readonly><br>
+                    <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required readonly><br>
                     <select name="Sex" id="Sex">
                         <option value="M">Male</option>
                         <option value="F">Female</option>

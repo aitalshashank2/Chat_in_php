@@ -22,4 +22,15 @@
         echo "<script> alert('$str');</script>";
     }
 
+    function encrMsgInfo($senderName, $receiverName, $index){
+        $str = "Heimdall".$senderName."at".$receiverName."Asgard".$index;
+        $str = hash('sha512', $str);
+        return $str;
+    }
+
+    function userHash($user, $userFr){
+        $str = $user."with".$userFr;
+        return hash('sha512', $str);
+    }
+
 ?>
