@@ -91,12 +91,13 @@
             }
 
         }else{
-            die(header("Location: ../html/signIn.html"));
+            alert("Invalid gender");
+            die(include("../html/signIn.html"));
         }
 
 
     }else{
-        header('HTTP/1.0 403 Forbidden', TRUE, 403);
-        die(header('location: ../html/signIn.html'));
+        alert("Invalid current user or email");
+        die(include('../html/signIn.html'));
     }
 ?>
