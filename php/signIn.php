@@ -29,7 +29,7 @@
         }
 
     }else{
-        header("Location: ../html/signIn.html");
-        die("Login Failed");
+        alert("Invalid UserName or password");
+        die(include("../html/signIn.html"));
     }
 ?>
