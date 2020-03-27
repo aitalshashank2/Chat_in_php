@@ -31,6 +31,8 @@
         $index = $row['indexInUse'];
         
         $iter = 0;
+        $data[0]['12'] = "initial";
+        $data[0]['21'] = "initial";
         while($iter < $index){
             $iter++;
             $msgHash1 = encrMsgInfo($user, $userFr, $iter);
@@ -45,12 +47,10 @@
                 $msgHash = $row['msgHash'];
                 $msg = $row['msg'];
                 if($msgHash == $msgHash1){
-                    $temp = htmlspecialchars($msg);
-                    $msgstr .= "////12////$temp";
+                    $data[$iter]['12'] = $msg;
                     
                 }else if($msgHash == $msgHash2){
-                    $temp = htmlspecialchars($msg);
-                    $msgstr .= "////21////$temp";
+                    $data[$iter]['21'] = $msg;
 
                 }else{
                     break;
@@ -65,7 +65,8 @@
             }
 
         }
-        echo $msgstr;
+
+        echo json_encode($data);
     }else{
         $q = "DELETE FROM shashank_Pairs WHERE UserHash='$userHash1' OR UserHash='$userHash2';";
         $conn->query($q);

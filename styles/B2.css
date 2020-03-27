@@ -63,6 +63,9 @@
 }
 #textShow{
     grid-area: 1 / 1 / 2 / 2;
+    max-height:37em;
+    overflow-x: hidden; 
+    overflow-x: auto;
 }
 .myText{
     margin-top: 10px;
@@ -75,7 +78,7 @@
     justify-content: flex-end;
 }
 .myWrapCont{
-    border: 0.5px solid white;
+    border: 0.5px solid rgb(252, 255, 77);
     border-radius: 10px;
     border-top-right-radius: 0px;
     padding:0.5em;
@@ -97,4 +100,7 @@
     border-top-left-radius: 0px;
     padding:0.5em;
     width:fit-content;
+}
+#textShow::-webkit-scrollbar{
+    display: none;
 }

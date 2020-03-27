@@ -22,7 +22,7 @@
         $user = $row['UserName'];
 
         $msg = $_POST['chatMsg'];
-        
+        $msg = addslashes($msg);
         if(trim($msg) != ""){
             $userHash1 = userHash($user, $userFr);
             $userHash2 = userHash($userFr, $user);

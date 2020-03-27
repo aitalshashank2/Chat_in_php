@@ -101,8 +101,51 @@
                 var xmlHTTP = new XMLHttpRequest();
                 xmlHTTP.onreadystatechange = function(){
                     if(this.readyState == 4 && this.status == 200){
-                        var t = this.responseText;
-                        console.log(t);
+                        var myObj = JSON.parse(this.responseText);
+
+                        var msgIndex = myObj.length - 1;
+                        var iter = 1;
+                        var dis = document.getElementById("textShow");
+                        dis.innerHTML = "";
+
+                        for(iter = 1; iter <= msgIndex; iter++){
+                            if(myObj[iter]['12'] !== undefined){
+                                
+                                var msgHolder = document.createElement("div");
+                                msgHolder.classList.add("myWrapCont");
+                                msgHolder.textContent = myObj[iter]['12'];
+                                
+                                var midmsgHolder = document.createElement("div");
+                                midmsgHolder.classList.add("myTextBox");
+                                midmsgHolder.appendChild(msgHolder);
+
+                                var uppermsgHolder = document.createElement("div");
+                                uppermsgHolder.classList.add("myText");
+                                uppermsgHolder.appendChild(midmsgHolder);
+
+                                document.getElementById("textShow").appendChild(uppermsgHolder);
+
+
+
+                            }else if(myObj[iter]['21'] !== undefined){
+                                
+                                var msgHolder = document.createElement("div");
+                                msgHolder.classList.add("otherWrapContent");
+                                msgHolder.textContent = myObj[iter]['21'];
+                                
+                                var midmsgHolder = document.createElement("div");
+                                midmsgHolder.classList.add("otherTextBox");
+                                midmsgHolder.appendChild(msgHolder);
+
+                                var uppermsgHolder = document.createElement("div");
+                                uppermsgHolder.classList.add("otherText");
+                                uppermsgHolder.appendChild(midmsgHolder);
+
+                                document.getElementById("textShow").appendChild(uppermsgHolder);
+
+                            }
+                        }
+
                     }
                 };
                 xmlHTTP.open("GET", "../php/convBack.php", true);
@@ -111,7 +154,7 @@
 
             setInterval(function(){
                 disMessages();
-            }, 5000);
+            }, 100);
 
             </script>
 
@@ -195,21 +238,7 @@
 
                 <div id="chat">
                     <div id="textShow">
-                        <div class="myText">
-                            <div class="myTextBox">
-                                <div class="myWrapCont">
-                                    abcjdanocbsdovubsodvbousfbvoufbovubuohourwhfournvoubvrouubuovhnowfuhounewuof dfvrfecetrhvytjbryjuryujbytjntyhybj rtbfyg
-                                </div>
-                            </div>
-                        </div>
-                        <div class="otherText">
-                            <div class="otherTextBox">
-                                <div class="otherWrapContent">
-                                    abcjdanocbsdovubsodvbousfbvoufbovubuohourwhfournvoubvrouubuovhnowfuhounewuof dfvrfecetrhvytjbryjuryujbytjntyhybj rtbfyg
-                                </div>
-                            </div>
-                        </div>
-
+                        
                     </div>
 
                     <div id="textIn">
